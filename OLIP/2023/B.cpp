@@ -1,14 +1,16 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
   int X, Y, Z;
 
-  scanf("%d %d %d", &X, &Y, &Z);
+  cin >> X >> Y >> Z;
 
   if (X * X != Y * Y + Z * Z)
   {
-    printf("Nao eh retangulo!\n");
+    cout << "Nao eh retangulo!" << endl;
   }
   else
   {
@@ -18,7 +20,7 @@ int main()
     c = 3 * Z * Z / 8;
     ans = c + t;
 
-    printf("AREA = %d\n", ans);
+    cout << "AREA = " << ans << endl;
   }
 
   return 0;

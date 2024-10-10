@@ -1,4 +1,9 @@
-#include <stdio.h>
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <iomanip>
+
+using namespace std;
 
 long long mdc(long long a, long long b)
 {
@@ -6,7 +11,6 @@ long long mdc(long long a, long long b)
   {
     return a;
   }
-
   return mdc(b, a % b);
 }
 
@@ -17,12 +21,13 @@ long long mmc(long long a, long long b)
 
 int main()
 {
-  long long c[3], total = 0, mmcc = 1;
+  vector<long long> c(3);
+  long long total = 0, mmcc = 1;
   long double ans;
 
   for (int i = 0; i < 3; i++)
   {
-    scanf("%lli", &c[i]);
+    cin >> c[i];
     mmcc = mmc(mmcc, c[i]);
   }
 
@@ -31,9 +36,9 @@ int main()
     total += mmcc / c[i];
   }
 
-  ans = (long double)mmcc / total;
+  ans = static_cast<long double>(mmcc) / total;
 
-  printf("%.3Lf\n", ans);
+  cout << fixed << setprecision(3) << ans << endl;
 
   return 0;
 }
